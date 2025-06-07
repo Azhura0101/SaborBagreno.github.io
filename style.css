@@ -1,0 +1,379 @@
+/* RESET GENERAL */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  background: linear-gradient(135deg, #004080, #0073e6);
+  color: #fff;
+  padding: 2.5rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  font-weight: 700;
+}
+
+.logo {
+  max-width: 140px;
+  margin-bottom: 1rem;
+  animation: logoEntrada 1.2s ease-out forwards;
+}
+
+@keyframes logoEntrada {
+  0% {
+    transform: scale(0.5) rotate(-20deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1) rotate(10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  font-weight: 900;
+  animation: fadeUp 1s ease-in-out 0.2s forwards;
+  opacity: 0;
+}
+
+.header p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+  animation: fadeUp 1s ease-in-out 0.4s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(90deg, #ffa500, #ff8c00);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  width: fit-content;
+  margin: 2rem auto;
+  box-shadow: 0 10px 30px rgba(255, 140, 0, 0.5);
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: bounceIn 1s ease-out 0.6s forwards;
+  opacity: 0;
+  transition: background 0.4s ease, transform 0.3s ease;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8) translateY(-20px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05) translateY(10px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.hero:hover {
+  background: linear-gradient(90deg, #ff8c00, #ffa500);
+  box-shadow: 0 15px 40px rgba(255, 140, 0, 0.7);
+  cursor: pointer;
+}
+
+/* SECCIONES */
+.destacado,
+.menu,
+.testimonios,
+.contacto,
+.direccion {
+  padding: 2rem 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* TITULOS DE SECCIÓN */
+.destacado h3,
+.menu h3,
+.testimonios h3 {
+  color: #005a9c;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+/* PLATOS */
+.plato {
+  background: #f9f9f9;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease-out;
+}
+
+.plato.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.plato:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+}
+
+.plato img {
+  width: 320px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 1rem 0 0 1rem;
+  flex-shrink: 0;
+}
+
+.info {
+  padding: 1.5rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.info h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #222;
+  font-weight: 700;
+}
+
+.info p {
+  margin-top: 0.5rem;
+  color: #555;
+  font-size: 1rem;
+}
+
+/* PEDIDO */
+.contenedor-pedido {
+  background-color: #1ebe5d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  width: fit-content;
+}
+
+.contenedor-pedido:active {
+  background-color: #18a34d;
+  transform: scale(0.94);
+}
+
+.contenedor-pedido img {
+  width: 1.8rem;
+  height: auto;
+  object-fit: contain;
+}
+
+/* PRECIO Y ETIQUETA */
+.span-class {
+  display: flex;
+  align-items: center;
+}
+.precio {
+  font-weight: 700;
+  color: #ffa500;
+  font-size: 1.3rem;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.etiqueta {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  border-radius: 25px;
+  background-color: #005a9c;
+  color: white;
+  font-weight: 700;
+  margin-left: 1rem;
+}
+
+.etiqueta.popular {
+  background-color: #ff5733;
+}
+
+/* WHATSAPP BOTÓN */
+.whatsapp-btn {
+  display: inline-block;
+  background-color: #25d366;
+  color: white;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe5d;
+  transform: scale(1.05);
+}
+
+/* Redes sociales */
+.redes-sociales {
+  background-color: #2f2fa2;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  animation: fadeIn 1s ease;
+}
+
+.redes-sociales h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.iconos-redes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.icono {
+  background-color: white;
+  color: #2f2fa2;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.icono:hover {
+  transform: scale(1.05);
+}
+
+.icono.facebook {
+  background-color: #3b5998;
+  color: white;
+}
+
+.icono.instagram {
+  background-color: #e1306c;
+  color: white;
+}
+
+
+
+/* TESTIMONIOS */
+.testimonios .comentario {
+  background: #f0f0f0;
+  border-left: 4px solid #ffa500;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  animation: fadeUp 1s ease-out;
+}
+
+.testimonios .comentario p {
+  margin: 0;
+  font-style: italic;
+}
+
+.testimonios .comentario span {
+  display: block;
+  margin-top: 0.5rem;
+  text-align: right;
+  font-weight: 600;
+  color: #555;
+}
+
+/* FOOTER */
+footer {
+  background: #004080;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+ 
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .plato {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .plato img {
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+  }
+  .contenedor-pedido img {
+    max-width: 2rem;
+  }
+
+  .info {
+    padding: 1rem;
+  }
+
+  .contenedor-pedido {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    width: auto;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .hero {
+    font-size: 1.5rem;
+    padding: 0.75rem 1.5rem;
+  }
+  .contacto {
+    white-space: nowrap;
+  }
+}

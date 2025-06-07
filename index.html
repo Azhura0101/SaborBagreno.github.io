@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sabor Bagreño</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="header">
+        <img src="https://i.postimg.cc/jSg9Pgcb/Dise-o-sin-t-tulo-2-Photoroom.png" alt="Logo Sabor Bagreño" class="logo" style="background-color: white;border-radius: 50%;" />
+        <h1>Sabor Bagreño</h1>
+        <p>Pescados, Almuerzos, Desayunos</p>
+        <p class="hero">¡Desde 14.000!</p>
+    </header>
+
+    <section class="destacado">
+        <h3>🌟 Plato del día</h3>
+        <div class="plato especial">
+            <img src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/XK2QMHCN4ZDYPLA4L7ONCJPJV4.jpg"
+                alt="Bagre en salsa" />
+
+
+            <div class="info">
+                <h3>Bagre en Salsa</h3>
+                <p>Sabor tradicional con toque casero.</p>
+                <div class="span-class">
+
+                    <span class="precio">$26.000</span>
+                    <span class="etiqueta popular" href="google.com">Popular</span>
+
+                </div>
+
+                <a class="contenedor-pedido" href="https://wa.me/573137079726" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png"
+                        alt="WhatsApp" href="https://wa.me/573137079726">
+                    <span>Pide ya!</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="menu">
+        <h3>🍽️ Nuestro Menú</h3>
+
+        <div class="plato fade-in">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8xqAcT4_TjLyql1JyMq7-m7OxsX7UigTRtg&s"
+                alt="Pescado frito" />
+
+
+            <div class="info">
+                <h3>Pescado Frito</h3>
+                <p>Frescura y sabor de río en cada bocado.</p>
+                <div class="span-class">
+                    <span class="precio">$25.000</span>
+                    <span class="etiqueta">Clásico</span>
+                </div>
+
+                <a class="contenedor-pedido" href="https://wa.me/573137079726" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png"
+                        alt="WhatsApp" href="https://wa.me/573137079726">
+                    <span>Pide ya!</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="plato fade-in">
+            <img src="https://i0.wp.com/gastroturismord.com/wp-content/uploads/2023/05/aadd83f9a31b4b02b3ed5a5675b72cbf.jpg?resize=1000%2C566&ssl=1"
+                alt="Bandeja" />
+            <div class="info">
+                <h3>Bandeja</h3>
+                <p>Tradición antioqueña con amor.</p>
+
+                <div class="span-class">
+                    <span class="precio">$22.000</span>
+                    <span class="etiqueta nuevo">Nuevo</span>
+                </div>
+
+
+                <a class="contenedor-pedido" href="https://wa.me/573137079726" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png"
+                        alt="WhatsApp" href="https://wa.me/573137079726">
+                    <span>Pide ya!</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="contacto">
+        <a href="https://wa.me/573137079726" target="_blank" class="whatsapp-btn">
+            📲 Haz tu pedido por WhatsApp
+        </a>
+    </section>
+
+   
+
+    <section class="testimonios">
+        <h3>💬 Lo que dicen nuestros clientes</h3>
+        <div class="comentario">
+            <p>“El pescado frito más fresco que he probado. 100% recomendado!”</p>
+            <span>— Camilo R.</span>
+        </div>
+        <div class="comentario">
+            <p>“Delicioso y rápido. El almuerzo del día nunca decepciona.”</p>
+            <span>— Laura M.</span>
+        </div>
+    </section>
+
+    <section class="direccion">
+        <p>📍 Plaza de Mercado Campo Valdés - Local 292</p>
+    </section>
+
+     <section class="redes-sociales">
+  <h2>Síguenos</h2>
+  <div class="iconos-redes">
+    <a href="https://www.facebook.com/share/g/16RJ7F3vjT/" target="_blank" class="icono facebook">Facebook</a>
+    <a href="https://www.instagram.com/saborbagrenooficcial/" target="_blank" class="icono instagram">Instagram</a>
+    
+  </div>
+</section>
+
+
+    <footer>
+        <p>&copy; 2025 Sabor Bagreño. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.fade-in, .plato').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+
+</html>
+2289
