@@ -29,7 +29,7 @@ const platosDelDia = [
   {
     nombre: "Bandeja De Res",
     imagen:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8xqAcT4_TjLyql1JyMq7-m7OxsX7UigTRtg&s",
+      "https://i0.wp.com/gastroturismord.com/wp-content/uploads/2023/05/aadd83f9a31b4b02b3ed5a5675b72cbf.jpg?resize=1000%2C566&ssl=1",
     descripcion:
       "Con acompañantes como: Arroz-Frijoles-Ensalada-Tajadas y jugo",
     precio: "$14.000",
@@ -105,5 +105,7 @@ document.querySelectorAll('.carrusel-con-botones').forEach(contenedor => {
         carrusel.scrollBy({ left: 550, behavior: 'smooth' });
     });
 });
+
+
 
 
