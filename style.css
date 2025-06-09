@@ -1,10 +1,23 @@
 /* RESET GENERAL */
+
+* {
+  box-sizing: border-box;
+}
+
+
 body {
   margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* evita el scroll horizontal */
   font-family: "Poppins", sans-serif;
   background-color: #fff;
   color: #333;
   line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
@@ -30,10 +43,12 @@ body {
     transform: scale(0.5) rotate(-20deg);
     opacity: 0;
   }
+
   60% {
     transform: scale(1.1) rotate(10deg);
     opacity: 1;
   }
+
   100% {
     transform: scale(1) rotate(0);
   }
@@ -62,6 +77,7 @@ body {
     transform: translateY(30px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -70,7 +86,7 @@ body {
 
 /* HERO */
 .hero {
-  background: linear-gradient(90deg, #ffa500, #ff8c00);
+  background: linear-gradient(90deg, #ff5100, #ff8c00);
   color: #fff;
   text-align: center;
   padding: 1rem 2rem;
@@ -92,17 +108,19 @@ body {
     transform: scale(0.8) translateY(-20px);
     opacity: 0;
   }
+
   60% {
     transform: scale(1.05) translateY(10px);
     opacity: 1;
   }
+
   100% {
     transform: scale(1) translateY(0);
   }
 }
 
 .hero:hover {
-  background: linear-gradient(90deg, #ff8c00, #ffa500);
+  background: linear-gradient(90deg, #ff5100, #ffa500);
   box-shadow: 0 15px 40px rgba(255, 140, 0, 0.7);
   cursor: pointer;
 }
@@ -111,19 +129,44 @@ body {
 .destacado,
 .menu,
 .testimonios,
-.contacto,
-.direccion {
+.contacto{
+  justify-content: center;
+  align-items: center;
   padding: 2rem 1.5rem;
   max-width: 1000px;
   margin: 0 auto;
 }
+
+
+  .direccion {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 500px;
+  user-select: none; /* Evita que el usuario seleccione el texto */
+}
+
+.direccion p {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+
 
 /* TITULOS DE SECCIÓN */
 .destacado h3,
 .menu h3,
 .testimonios h3 {
   color: #005a9c;
-  margin-bottom: 1.5rem;
+  user-select: none;
   font-weight: 700;
   font-size: 1.6rem;
 }
@@ -133,43 +176,123 @@ body {
   background: #f9f9f9;
   border-radius: 1rem;
   overflow: hidden;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.6s ease-out;
+  transition: all 0.4s ease-out;
+  scroll-snap-align: start;
+  width: 100%;
+  /* ancho mínimo para cada plato */
+  flex-shrink: 0;
+  
+
 }
 
 .plato.visible {
   opacity: 1;
-  transform: translateY(0);
+
 }
 
-.plato:hover {
-  transform: translateY(-8px);
+.plato:active {
+
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
 }
 
 .plato img {
-  width: 320px;
-  height: 180px;
-  object-fit: cover;
+   width: 100%;
+  max-width: 320px;
+  height: 200px;
+  object-fit:cover;
   border-radius: 1rem 0 0 1rem;
-  flex-shrink: 0;
 }
+
+.carrusel::-webkit-scrollbar {
+  display: none;
+  /* oculta la barra de scroll */
+}
+
+.carrusel {
+  display: flex;
+  align-items: stretch;
+  gap: 1.5rem;
+  overflow-x: auto;
+  /* Scroll horizontal */
+  scroll-behavior: smooth;
+  /* Scroll suave */
+  -webkit-overflow-scrolling: touch;
+  /* Mejora la experiencia en iOS */
+  scroll-snap-type: x mandatory;
+  /* Opcional: para que "encaje" en cada item */
+
+
+}
+
+.indicador-deslizar-animado {
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.4rem;
+  color: #000000;
+  font-size: 0.95rem;
+}
+
+.flecha {
+
+  font-size: 1.7rem;
+  animation: moverFlecha 1s infinite alternate;
+  margin-bottom: 0.5rem;
+  font-weight: bolder;
+}
+
+@keyframes moverFlecha {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+.carrusel-con-botones {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-flecha {
+  background-color: #ffffff;
+  border: none;
+  font-size: 1.7rem;
+  cursor: pointer;
+  padding-bottom: 0.4rem;
+  border-radius: 20%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s;
+  font-weight: bolder;
+}
+
+.btn-flecha:active {
+  background-color: #eee;
+}
+
+
+
 
 .info {
   padding: 1.5rem 2rem;
   flex: 1;
   display: flex;
   flex-direction: column;
+  user-select: none;
+
 }
 
 .info h3 {
-  margin-top: 0;
+
   font-size: 1.5rem;
   color: #222;
   font-weight: 700;
@@ -217,6 +340,7 @@ body {
   display: flex;
   align-items: center;
 }
+
 .precio {
   font-weight: 700;
   color: #ffa500;
@@ -241,6 +365,11 @@ body {
   background-color: #ff5733;
 }
 
+.etiqueta.almuerzo {
+  background-color: rgba(193, 0, 0, 0.803);
+
+}
+
 /* WHATSAPP BOTÓN */
 .whatsapp-btn {
   display: inline-block;
@@ -262,55 +391,69 @@ body {
 
 /* Redes sociales */
 .redes-sociales {
-  background-color: #2f2fa2;
-  color: white;
   text-align: center;
   padding: 2rem 1rem;
-  animation: fadeIn 1s ease;
+  background-color: #f9f9f9;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  margin: 2rem auto;
+  max-width: 600px;
 }
 
 .redes-sociales h2 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
+  user-select: none;
 }
 
 .iconos-redes {
   display: flex;
   justify-content: center;
+  gap: 2rem;
   flex-wrap: wrap;
-  gap: 1rem;
 }
 
-.icono {
-  background-color: white;
-  color: #2f2fa2;
-  padding: 0.8rem 1.5rem;
-  border-radius: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: transform 0.3s ease, background 0.3s ease;
+/* Estilo general para cada red */
+.iconos-redes > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  user-select: none;
 }
 
-.icono:hover {
+/* Animación al tocar o pasar el cursor */
+.iconos-redes > div:hover,
+.iconos-redes > div:active {
   transform: scale(1.05);
 }
 
-.icono.facebook {
-  background-color: #3b5998;
-  color: white;
+/* Íconos */
+.icono img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: box-shadow 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.icono.instagram {
-  background-color: #e1306c;
-  color: white;
+/* Nombre de la red */
+.iconos-redes span {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
 }
+
 
 
 
 /* TESTIMONIOS */
 .testimonios .comentario {
   background: #f0f0f0;
-  border-left: 4px solid #ffa500;
+  border-left: 4px solid #ffb700;
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 8px;
@@ -330,27 +473,95 @@ body {
   color: #555;
 }
 
+#Bandeja {
+  color: #ff5100;
+  width: max-content;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-weight: bold;
+
+
+}
+
+#Pescado {
+
+  width: max-content;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+#Desayuno {
+  color: #ffa500;
+  width: max-content;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
+
+
 /* FOOTER */
 footer {
-  background: #004080;
-  color: white;
-  text-align: center;
-  padding: 1rem;
  
-  font-size: 0.9rem;
+  background: linear-gradient(135deg, #004080, #0061c1); /* Fondo oscuro */
+  color: #fff;               /* Texto blanco */
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+  user-select: none; /* Evita que el texto se pueda seleccionar */
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+
+  body {
+    font-size: small;
+  }
+
   .plato {
-    flex-direction: column;
-    align-items: stretch;
+    width: 80%;
+    /* ancho fijo menor que el contenedor para scroll */
+
+  }
+
+  .plato.especial{
+   width: 100%;
+  }
+
+  .plato.especial img{
+    width: 1000px;
+  }
+
+  #Arepa {
+    font-size: 1.2rem;
   }
 
   .plato img {
     width: 100%;
     border-radius: 1rem 1rem 0 0;
   }
+  .plato:active{
+   background-color:rgb(241, 241, 241);
+  }
+
+  .btn-flecha {
+    display: none;
+  }
+
+  .indicador-deslizar-animado {
+    display: flex;
+  }
+
+  .carrusel::-webkit-scrollbar {
+    display: none;
+    /* oculta la barra de scroll */
+  }
+
   .contenedor-pedido img {
     max-width: 2rem;
   }
@@ -373,7 +584,9 @@ footer {
     font-size: 1.5rem;
     padding: 0.75rem 1.5rem;
   }
+
   .contacto {
     white-space: nowrap;
   }
+
 }
