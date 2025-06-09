@@ -1,360 +1,109 @@
-<!DOCTYPE html>
-<html lang="es">
+console.log('Created By Azhura0101')
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sabor Bagreño - Restaurante de comida tradicional</title>
-    <meta name="description"
-        content="Sabor Bagreño, restaurante que ofrece los mejores platos tradicionales con sabor auténtico y frescura garantizada." />
-    <meta name="keywords"
-        content="restaurante, comida tradicional, Sabor Bagreño, platos típicos, gastronomía local, comida fresca, pescado, Bagre, Bagreño" />
-    <meta name="author" content="Sabor Bagreño" />
-    <link rel="icon" href="https://i.postimg.cc/26b5pHGF/Dise-o-sin-t-tulo-2.png" type="image/x-icon" />
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
+// ------------------------
+// ANIMACIONES CON INTERSECTION OBSERVER
+// ------------------------
+const platos = document.querySelectorAll(".plato");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+});
+platos.forEach((plato) => observer.observe(plato));
 
-<body>
+// ------------------------
+// PLATO DESTACADO DEL DÍA
+// ------------------------
+const platosDelDia = [
+  // 0 - Domingo
+  {
+    nombre: "Mondongo",
+    imagen:
+      "https://elrinconcolombiano.com/wp-content/uploads/2023/11/Mondongo-paisa-o-sopa-de-mondongo-o-callo.jpg",
+    descripcion: "Sabor tradicional con toque casero.",
+    precio: "$20.000",
+  },
+  // 1 - Lunes
+  {
+    nombre: "Bandeja De Res",
+    imagen:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8xqAcT4_TjLyql1JyMq7-m7OxsX7UigTRtg&s",
+    descripcion:
+      "Con acompañantes como: Arroz-Frijoles-Ensalada-Tajadas y jugo",
+    precio: "$14.000",
+  },
+  // 2 - Martes
+  {
+    nombre: "Bandeja De Cerdo",
+    imagen:
+      "https://media-cdn.tripadvisor.com/media/photo-s/13/01/61/00/cerdo-asado-pollo-a-la.jpg",
+    descripcion: "Tradición antioqueña con amor.",
+    precio: "$14.000",
+  },
+  // 3 - Miércoles
+  {
+    nombre: "Bandeja De Chicharron ",
+    imagen: "https://example.com/cazuela.jpg",
+    descripcion: "Deliciosa mezcla de mariscos frescos.",
+    precio: "$14.000",
+  },
+  // 4 - Jueves
+  {
+    nombre: "Bandeja De Pechuga",
+    imagen: "https://i.postimg.cc/L4xjGm3C/Whats-App-Image-2025-06-08-at-9-14-06-PM-Editado.png",
+    descripcion: "Arroz saborizado con camarones frescos.",
+    precio: "$14.000",
+  },
+  // 5 - Viernes
+  {
+    nombre: "Bandeja Paisa",
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3GvefrM5x6aymSyHOJNe_2opyiMOLwgDQbQ&s",
+    descripcion: "Sancocho tradicional con bagre fresco.",
+    precio: "$20.000",
+  },
+  // 6 - Sábado
+  {
+    nombre: "Pescado Tilapia o Robalo",
+    imagen: "https://i.postimg.cc/kGWQ0SJk/b5d8b3fa-7f59-4008-ae23-fe02642933a6.png",
+    descripcion: "Deliciosos Pescados como Tilapia y Robalo",
+    precio: "$20.000",
+  },
+];
 
-    <header class="header">
-        <img src="https://i.postimg.cc/jSg9Pgcb/Dise-o-sin-t-tulo-2-Photoroom.png" alt="Logo Sabor Bagreño" class="logo"
-            style="background-color: white; border-radius: 50%;" />
-        <h1>Sabor Bagreño</h1>
-        <p>Pescados, Almuerzos, Desayunos</p>
-        <p class="hero">¡Desde $14.000!</p>
-        <p style="text-decoration:underline;">🛵📦 Domicilio Gratuito</p>
-        <span>Aranjuez - Manrique - Campo Valdez</span>
-    </header>
+// Obtener día actual
+const hoy = new Date().getDay();
 
-    <section class="destacado">
-        <h3>🌟 Plato del día</h3>
-        <div class="plato especial">
-            <img src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/XK2QMHCN4ZDYPLA4L7ONCJPJV4.jpg"
-                alt="Bagre en salsa" />
-            <div class="info">
-                <h3>...</h3>
-                <p>..</p>
-                <div class="span-class">
-                    <span class="precio">...
-                    </span>
-                    <span class="etiqueta popular">Popular</span>
-                </div>
-                <a class="contenedor-pedido" href="https://wa.me/573137079726" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png"
-                        alt="WhatsApp">
-                    <span>Pide ya!</span>
-                </a>
-            </div>
-        </div>
-    </section>
+// Seleccionar elementos del DOM
+const seccionPlato = document.querySelector(".destacado .plato.especial");
+const imgPlato = seccionPlato.querySelector("img");
+const nombrePlato = seccionPlato.querySelector("h3");
+const descripcionPlato = seccionPlato.querySelector("p");
+const precioPlato = seccionPlato.querySelector(".precio");
 
-    <section class="menu">
-        <h3 id="Bandeja">Bandejas</h3>
-        <div class="indicador-deslizar-animado">
-            <span>Desliza</span>
-            <span class="flecha">→</span>
-        </div>
-        <div class="carrusel-con-botones">
-            <button class="btn-flecha izquierda">←</button>
-            <div class="carrusel">
+// Mostrar el plato del día
+if (platosDelDia[hoy]) {
+  const plato = platosDelDia[hoy];
+  imgPlato.src = plato.imagen;
+  imgPlato.alt = plato.nombre;
+  nombrePlato.textContent = plato.nombre;
+  descripcionPlato.textContent = plato.descripcion;
+  precioPlato.textContent = plato.precio;
+}
 
+document.querySelectorAll('.carrusel-con-botones').forEach(contenedor => {
+    const carrusel = contenedor.querySelector('.carrusel');
+    const btnIzquierda = contenedor.querySelector('.btn-flecha.izquierda');
+    const btnDerecha = contenedor.querySelector('.btn-flecha.derecha');
 
+    btnIzquierda.addEventListener('click', () => {
+        carrusel.scrollBy({ left: -550, behavior: 'smooth' });
+    });
 
-                <div class="plato fade-in">
-                    <img src="https://i0.wp.com/gastroturismord.com/wp-content/uploads/2023/05/aadd83f9a31b4b02b3ed5a5675b72cbf.jpg?resize=1000%2C566&ssl=1"
-                        alt="Bandeja" />
-                    <div class="info">
-                        <h3>Bandeja De Res</h3>
-                        <p>Una Deliciosa bandeja con acompañantes como arroz, frijoles, ensalada, tajadas y jugo.</p>
-                        <div class="span-class">
-                            <span class="precio">$14.000</span>
-                            <span class="etiqueta nuevo">Casera</span>
-                            <span class="etiqueta almuerzo">Asado</span>
-                        </div>
-                        <a class="contenedor-pedido" href="https://wa.me/573137079726" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png"
-                                alt="WhatsApp">
-                            <span>Pide ya!</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="plato fade-in">
-                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/13/01/61/00/cerdo-asado-pollo-a-la.jpg"
-                        alt="Bandeja" />
-                    <div class="info">
-                        <h3>Bandeja De Cerdo</h3>
-                        <p>Una Deliciosa bandeja con acompañantes como arroz, frijoles, ensalada, tajadas y jugo.</p>
-                        <div class="span-class">
-                            <span class="precio">$14.000</span>
-                            <span class="etiqueta nuevo">Casera</span>
-                            <span class="etiqueta almuerzo">Asado</span>
-                        </div>
-                        <a class="contenedor-pedido" href="https://wa.me/573137079726" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png"
-                                alt="WhatsApp">
-                            <span>Pide ya!</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="plato fade-in">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs2STAV_KzWvAdptEas9Z2Y8zRsWB6ow8S158sC8ypuwv7_8Qb8VsYyrzUGoCaYjOMpzc&usqp=CAU"
-                        alt="Bandeja" />
-                    <div class="info">
-                        <h3>Bandeja De Chicharron</h3>
-                        <p>Una Deliciosa bandeja con acompañantes como arroz, frijoles, ensalada, tajadas y jugo.</p>
-                        <div class="span-class">
-                            <span class="precio">$14.000</span>
-                            <span class="etiqueta nuevo">Nuevo</span>
-                            <span class="etiqueta almuerzo">Asado</span>
-                        </div>
-                        <a class="contenedor-pedido" href="https://wa.me/573137079726" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png"
-                                alt="WhatsApp">
-                            <span>Pide ya!</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="plato fade-in">
-                    <img src="https://i.postimg.cc/L4xjGm3C/Whats-App-Image-2025-06-08-at-9-14-06-PM-Editado.png"
-                        alt="Bandeja" />
-                    <div class="info">
-                        <h3>Bandeja De Pechuga</h3>
-                        <p>Una Deliciosa bandeja con acompañantes como arroz, frijoles, ensalada, tajadas y jugo.</p>
-                        <div class="span-class">
-                            <span class="precio">$14.000</span>
-                            <span class="etiqueta nuevo">Popular</span>
-                            <span class="etiqueta almuerzo">Asado</span>
-                        </div>
-                        <a class="contenedor-pedido" href="https://wa.me/573137079726" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png"
-                                alt="WhatsApp">
-                            <span>Pide ya!</span>
-                        </a>
-                    </div>
-                </div>
+    btnDerecha.addEventListener('click', () => {
+        carrusel.scrollBy({ left: 550, behavior: 'smooth' });
+    });
+});
 
 
-            </div>
-            <button class="btn-flecha derecha">→</button>
-        </div>
-    </section>
-
-    <section class="menu">
-        <h3 id="Pescado">Pescados</h3>
-        <div class="indicador-deslizar-animado">
-            <span>Desliza</span>
-            <span class="flecha">→</span>
-        </div>
-        <div class="carrusel-con-botones">
-            <button class="btn-flecha izquierda">←</button>
-            <div class="carrusel">
-
-                <div class="plato fade-in">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8xqAcT4_TjLyql1JyMq7-m7OxsX7UigTRtg&s"
-                        alt="Pescado frito" />
-                    <div class="info">
-                        <h3>Pescado Frito</h3>
-                        <p>Frescura y sabor de río en cada bocado.</p>
-                        <div class="span-class">
-                            <span class="precio">$20.000</span>
-                            <span class="etiqueta">Clásico</span>
-                        </div>
-                        <a class="contenedor-pedido" href="https://wa.me/573137079726" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png"
-                                alt="WhatsApp">
-                            <span>Pide ya!</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="plato fade-in">
-                    <img src="https://i.pinimg.com/736x/e7/05/93/e705932765dad5ca5edfc05ab16d0756.jpg"
-                        alt="Pescado Robalo" />
-                    <div class="info">
-                        <h3>Robalo</h3>
-                        <p>Robalo a la plancha con arroz esponjoso, patacones doraditos, ensalada fresca.</p>
-                        <div class="span-class">
-                            <span class="precio">$20.000</span>
-                            <span class="etiqueta">Clásico</span>
-                        </div>
-                        <a class="contenedor-pedido" href="https://wa.me/573137079726" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png"
-                                alt="WhatsApp">
-                            <span>Pide ya!</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="plato fade-in">
-                    <img src="https://i.postimg.cc/kGWQ0SJk/b5d8b3fa-7f59-4008-ae23-fe02642933a6.png"
-                        alt="Tilapia" />
-                    <div class="info">
-                        <h3>Tilapia</h3>
-                        <p>Tilapia a la plancha con arroz esponjoso, patacones doraditos, ensalada fresca.</p>
-                        <div class="span-class">
-                            <span class="precio">$20.000</span>
-                            <span class="etiqueta nuevo">Nuevo</span>
-                        </div>
-                        <a class="contenedor-pedido" href="https://wa.me/573137079726" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png"
-                                alt="WhatsApp">
-                            <span>Pide ya!</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="plato fade-in">
-                    <img src="https://i.postimg.cc/FzfDfwHQ/56c252e2-9121-481d-a134-dcb517902f39.png"
-                        alt="Sopa de Bagre" />
-                    <div class="info">
-                        <h3>Sopa de Bagre</h3>
-                        <p> Sopa de bagre con sabor casero, hecha con ingredientes frescos y amor. Ideal para reconfortar el alma.</p>
-                        <div class="span-class">
-                            <span class="precio">$18.000</span>
-                            <span class="etiqueta nuevo">Clásico</span>
-                            <span class="etiqueta almuerzo">A la plancha</span>
-                        </div>
-                        <a class="contenedor-pedido" href="https://wa.me/573137079726" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png"
-                                alt="WhatsApp">
-                            <span>Pide ya!</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-            <button class="btn-flecha derecha">→</button>
-        </div>
-    </section>
-
-    <!-- Aquí continúa la sección Desayunos, que se cortó. Si quieres que la complete también, dímelo. -->
-</body>
-
-</html>
-
-
-<section class="menu">
-    <h3 id="Desayuno">Desayunos</h3>
-    <div class="indicador-deslizar-animado">
-        <span>Desliza</span>
-        <span class="flecha">→</span>
-    </div>
-
-    <div class="carrusel-con-botones">
-        <button class="btn-flecha izquierda">←</button>
-        <div class="carrusel">
-
-
-            <div class="plato fade-in">
-                <img src="https://media.istockphoto.com/id/1481779947/es/foto/arepa-con-queso-huevo-y-chocolate-caliente-desayuno-tradicional-colombiano.jpg?s=170667a&w=0&k=20&c=dnZeN8vIkq72FmGi5GfnAJdJfFnnjWGP5v1CJuqmP4o="
-                    alt="Pescado frito" />
-
-
-                <div class="info">
-                    <h3 id="Arepa">Arepa con Huevo - Quesito</h3>
-                    <p>Con tu bebida reconfortante como Chocolate o Cafe con leche</p>
-                    <div class="span-class">
-                        <span class="precio">$8.000</span>
-                        <span class="etiqueta">Clásico</span>
-                    </div>
-
-                    <a class="contenedor-pedido" href="https://wa.me/573137079726" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png"
-                            alt="WhatsApp" href="https://wa.me/573137079726">
-                        <span>Pide ya!</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="plato fade-in">
-                <img src="https://i.postimg.cc/dQnMxQtS/Whats-App-Image-2025-06-06-at-5-44-55-PM-1-Editado-Editado.png"
-                    alt="Bandeja" />
-                <div class="info">
-                    <h3>Calentado</h3>
-                    <p>Deliciosos calentado, necesario para tener un buen dia </p>
-
-                    <div class="span-class">
-                        <span class="precio">$14.000</span>
-
-                        <span class="etiqueta nuevo">Nuevo</span>
-
-                    </div>
-
-
-                    <a class="contenedor-pedido" href="https://wa.me/573137079726" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png"
-                            alt="WhatsApp" href="https://wa.me/573137079726">
-                        <span>Pide ya!</span>
-                    </a>
-
-                </div>
-            </div>
-        </div>
-
-        <button class="btn-flecha derecha">→</button>
-    </div>
-</section>
-
-<section class="contacto">
-    <a href="https://wa.me/573137079726" target="_blank" class="whatsapp-btn">
-        📲 Haz tu pedido por WhatsApp
-    </a>
-</section>
-
-
-
-<section class="testimonios">
-    <h3>💬 Lo que dicen nuestros clientes</h3>
-    <div class="comentario">
-        <p>“El pescado frito más fresco que he probado. 100% recomendado!”</p>
-        <span>— Camilo R.</span>
-    </div>
-    <div class="comentario">
-        <p>“Delicioso y rápido. El almuerzo del día nunca decepciona.”</p>
-        <span>— Laura M.</span>
-    </div>
-</section>
-
-<section class="direccion">
-    <p>🛣️ Calle 80 #49a - 40</p>
-    <p>📍 Plaza de Mercado Campo Valdés - Local 292</p>
-</section>
-
-<section class="redes-sociales">
-    <h2>Síguenos</h2>
-    <div class="iconos-redes">
-        <div class="facebook"> <a href="https://www.facebook.com/people/Sabor-Brage%C3%B1o/61577120463972/#" target="_blank"
-                class="icono facebook"><img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1200px-Facebook_Logo_%282019%29.png"
-                    alt="icono-faceboock"></a>
-            <span>Facebook</span>
-        </div>
-
-        <div class="instagram">
-            <a href="https://www.instagram.com/saborbagrenooficcial/" target="_blank" class="icono instagram"><img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/800px-Instagram_logo_2022.svg.png"
-                    alt="icono-instagram"></a>
-            <span>Instagram</span>
-        </div>
-
-
-    </div>
-</section>
-
-
-<footer>
-    <p>&copy; 2025 Sabor Bagreño. Todos los derechos reservados.</p>
-</footer>
-
-<script src="script.js"></script>
-</script>
-
-
-
-</body>
-
-</html>
