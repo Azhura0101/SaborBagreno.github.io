@@ -38,14 +38,14 @@ const platosDelDia = [
   {
     nombre: "Bandeja De Cerdo",
     imagen:
-      "https://media-cdn.tripadvisor.com/media/photo-s/13/01/61/00/cerdo-asado-pollo-a-la.jpg",
+      "https://i.postimg.cc/5tqJZkXG/549287fb-bae7-4e5f-8ae8-866056f741a1.png",
     descripcion: "Tradición antioqueña con amor.",
     precio: "$14.000",
   },
   // 3 - Miércoles
   {
     nombre: "Bandeja De Chicharron ",
-    imagen: "https://example.com/cazuela.jpg",
+    imagen: "https://i.postimg.cc/bY79Vztm/aff501b7-5ad9-4da9-90ac-112f7a80b874.jpg",
     descripcion: "Deliciosa mezcla de mariscos frescos.",
     precio: "$14.000",
   },
@@ -105,7 +105,4 @@ document.querySelectorAll('.carrusel-con-botones').forEach(contenedor => {
         carrusel.scrollBy({ left: 550, behavior: 'smooth' });
     });
 });
-
-
-
 
